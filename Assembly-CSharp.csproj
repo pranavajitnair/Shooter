@@ -151,8 +151,10 @@
      <Compile Include="Assets\packs\Standard Assets\Vehicles\Car\Scripts\Suspension.cs" />
      <Compile Include="Assets\packs\Standard Assets\Vehicles\Car\Scripts\WheelEffects.cs" />
      <Compile Include="Assets\rest\scripts\Collision_handler.cs" />
+     <Compile Include="Assets\rest\scripts\Enemy.cs" />
      <Compile Include="Assets\rest\scripts\Music_script.cs" />
      <Compile Include="Assets\rest\scripts\Player.cs" />
+     <Compile Include="Assets\rest\scripts\ScoreBoard.cs" />
      <None Include="Assets\packs\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\packs\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
      <None Include="Assets\packs\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
