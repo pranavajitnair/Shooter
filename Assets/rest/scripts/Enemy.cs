@@ -6,6 +6,9 @@ public class Enemy : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] GameObject PrefabToUse;
+    [SerializeField] int scorePerHit = 10;
+
+    [SerializeField] int numberOfHits;
 
     void Start()
     {
@@ -20,9 +23,15 @@ public class Enemy : MonoBehaviour
 
     void OnParticleCollision(GameObject other)
     {
-        ParticleSystem sys=Instantiate(PrefabToUse, transform.position, Quaternion.identity).GetComponentInChildren<ParticleSystem>();
-        sys.Play();
-        Destroy(gameObject);
-        print("Collision");
+        numberOfHits--;
+
+        if (numberOfHits <= 0)
+        {
+            FindObjectOfType<ScoreBoard>().ScoreHit(scorePerHit);
+            ParticleSystem sys = Instantiate(PrefabToUse, transform.position, Quaternion.identity).GetComponentInChildren<ParticleSystem>();
+            sys.Play();
+            Destroy(gameObject);
+            print("Collision");
+        }
     }
 }

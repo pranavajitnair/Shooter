@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ScoreBoard : MonoBehaviour
 {
-    int score,scoreHit=20;
+    int score;
     Text scoreText;
     // Start is called before the first frame update
     void Start()
@@ -20,8 +20,8 @@ public class ScoreBoard : MonoBehaviour
         
     }
 
-    public void ScoreHit(){
-        score+=scoreHit;
+    public void ScoreHit(int hit){
+        score+=hit;
         scoreText.text=score.ToString();
     }
 }

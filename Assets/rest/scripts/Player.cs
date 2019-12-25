@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] float controlPitchFactor = -20f;
     [SerializeField] float positionYawFactor = 5f;
     [SerializeField] float controlRollFactor = -20f;
+    [SerializeField] GameObject gun1,gun2;
     float xThrow, yThrow;
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour
     {
         ProcessTranslation();
         ProcessRotation();
+        Fire();
         int count=FindObjectsOfType<AudioSource>().Length;
         if(count>1)
         {
@@ -60,5 +62,16 @@ public class Player : MonoBehaviour
     void onPlayerDeath()
     {
         print("Die");
+    }
+
+    private void Fire(){
+        if(Input.GetButton("Fire")){
+            gun1.SetActive(true);
+            gun2.SetActive(true);
+        }
+        else if(!Input.GetButton("Fire")){
+            gun1.SetActive(false);
+            gun2.SetActive(false);
+        }
     }
 }
