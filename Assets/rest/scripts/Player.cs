@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] float controlPitchFactor = -20f;
     [SerializeField] float positionYawFactor = 5f;
     [SerializeField] float controlRollFactor = -20f;
-    [SerializeField] GameObject gun1,gun2;
+    [SerializeField] GameObject gun1, gun2;
     float xThrow, yThrow;
     // Start is called before the first frame update
     void Start()
@@ -26,8 +26,8 @@ public class Player : MonoBehaviour
         ProcessTranslation();
         ProcessRotation();
         Fire();
-        int count=FindObjectsOfType<AudioSource>().Length;
-        if(count>1)
+        int count = FindObjectsOfType<AudioSource>().Length;
+        if (count > 1)
         {
             FindObjectsOfType<AudioSource>()[0].Stop();
         }
@@ -64,14 +64,21 @@ public class Player : MonoBehaviour
         print("Die");
     }
 
-    private void Fire(){
-        if(Input.GetButton("Fire")){
-            gun1.SetActive(true);
-            gun2.SetActive(true);
+    private void Fire()
+    {
+        if (Input.GetButton("Fire"))
+        {
+            var x1=gun1.GetComponent<ParticleSystem>().emission;
+            x1.enabled=true;
+            var x2=gun2.GetComponent<ParticleSystem>().emission;
+            x2.enabled=true;
         }
-        else if(!Input.GetButton("Fire")){
-            gun1.SetActive(false);
-            gun2.SetActive(false);
+        else if (!Input.GetButton("Fire"))
+        {
+            var x1=gun1.GetComponent<ParticleSystem>().emission;
+            x1.enabled=false;
+            var x2=gun2.GetComponent<ParticleSystem>().emission;
+            x2.enabled=false;
         }
     }
 }
